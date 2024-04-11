@@ -1,0 +1,42 @@
+---
+import { SERVICES, INTRANET_LIST } from "../NavBar/NavBar";
+import GreenArrow from "@components/icons/GreenArrow.astro"
+const SECTIONS = ['CARRERAS','CURSOS CORTOS','CONOCE CIBERTEC'];
+---
+<nav class="fixed w-full z-[100]">
+  <nav class="nav-top max-w-full bg-[#001c2c]">
+    <div class="w-[90%] max-w-[1300px] mx-auto py-1 text-white">
+      <div class="flex justify-between">
+        <div class="services flex">
+          {
+            SERVICES.map(service => (
+              <a class="list-none px-2 font-light text-xs cursor-pointer">{service.name}</a>
+            ))
+          }
+        </div>
+        <div class="intranet flex">
+          {
+            INTRANET_LIST.map(item => (
+              <a class="list-none px-2 font-light text-xs cursor-pointer">{item.name}</a>
+            ))
+          }
+        </div>
+      </div>
+    <div/>
+  </nav>
+
+  <nav class="max-w-full bg-[#000]/60">
+    <div class="w-[90%] max-w-[1300px] mx-auto py-4 text-white flex justify-between items-center">
+      <div class="logo">
+        <img src="logo.svg" alt="">
+      </div>
+      <div class="sections flex">
+        {
+          SECTIONS.map(section => (
+          <div class="flex items-center px-6 font-black text-sm">{section} <GreenArrow class="pl-2 h-6 w-6"/></div>
+          ))
+        }
+      </div>
+    </div>
+  </nav>
+</nav>
