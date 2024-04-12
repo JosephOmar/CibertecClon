@@ -1,7 +1,7 @@
 ---
 import ButtonDarkMode from '@components/ButtonDarkMode.astro';
-import NavBar from '@components/NavBar/NavBar.astro';
-
+import Header from '@components/Header/Header.astro';
+import Footer from '@components/Footer/Footer.astro';
 interface Props {
 	title: string;
 }
@@ -27,10 +27,11 @@ const { title } = Astro.props;
 			}
 		</script>
 	</head>
-	<body class="dark:bg-black/90 dark:text-white h-[200vh]">
+	<body class="dark:bg-black/90 dark:text-white">
 		<ButtonDarkMode />
-		<NavBar />
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>

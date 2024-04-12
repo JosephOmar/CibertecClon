@@ -1,0 +1,55 @@
+---
+import { SOCIALICONS, DETAILS } from "./Footer";
+---
+
+<section class="bg-[#002c44] pt-8 relative overflow-hidden pb-6">
+  <div class="max-w-[1024px]  h-full mx-auto grid grid-cols-4 gap-8 relative">
+    <div class="col-span-1  h-full flex flex-col justify-between">
+      <div>
+        <img src="logo.svg" alt="">
+      </div>
+      <ul class="flex justify-start gap-5">
+      {
+        SOCIALICONS.map(social => (
+          <li class="list-none relative pl-[10px]">
+            <a href={social.link} >
+              <img src={social.svg} alt="">
+            </a>
+          </li>
+        ))
+      }
+      </ul>
+    </div>
+    <div class="col-span-1 h-full flex flex-col gap-4 items-start text-white font-extralight text-xs tracking-widest">
+      {
+        DETAILS.map(detail => (
+        <a href={detail.link}>{detail.name}</a>
+        ))
+      }     
+    </div>
+    <div class="col-span-2 h-full flex flex-col justify-between">
+      <div class="flex justify-end">
+        <img src="Icons/Footer/footer1.webp" alt="" class="w-[100px] h-[30px] ml-16">
+        <img src="Icons/Footer/footer2.webp" alt="" class="w-[100px] h-[40px] ml-16">
+        <img src="Icons/Footer/footer3.webp" alt="" class="w-[100px] h-[40px] ml-16">
+      </div>
+      <div class="flex flex-col items-end text-[11px] text-white font-extralight tracking-widest">
+        <p>INSTITUTO DE EDUCACION SUPERIOR PRIVADO CIBERTEC S.A.C. - 2023</p>
+        <p>JR. URUGUAY 514 LIMA</p>  
+      </div>
+    </div>
+    <p class="text-[11px] text-white font-extralight tracking-widest absolute bottom-[-15px] right-0">TODOS LOS DERECHS RESERVADOS</p>
+  </div>
+</section>  
+
+<style>
+  li:not(:last-child):before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 19px;
+    background: #939393;
+    right: -15px;
+    top: 0;
+  }
+</style>

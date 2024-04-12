@@ -1,0 +1,49 @@
+---
+import Carousel from "@components/Carousel.astro";
+import { LOCATIONS } from "./InfoCard";
+
+---
+<section class="relative overflow-hidden">
+  <div class="max-w-[1024px] mx-auto  relative z-[80]">
+    <h2 class="text-[3.125rem] mx-auto font-semibold text-white dark:text-[#009AA6] text-center max-w-[600px]">ENCUENTRA UN CIBERTEC CERCA</h2>
+    <span class="w-10 h-[14px] rounded-[7px] bg-[#69BE28] block mx-auto mb-5"></span>
+    <div>
+      <select id="selectSedes" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 max-w-[300px] mx-auto mb-10">
+        <option selected value="ALL">NUESTRAS SEDES</option>
+        <option value="SJL">SAN JUAN DE LURIGANCHO</option>
+        <option value="IND">INDEPENDENCIA</option>
+        <option value="TRU">TRUJILLO</option>
+        <option value="LIM">LIMA CENTRO</option>
+        <option value="BRE">BREÑA</option>
+        <option value="AQP">AREQUIPA</option>
+        <option value="CAL">CALLAO</option>
+      </select>
+    </div>
+    <Carousel CARDS={LOCATIONS} len='w-[2212px]'/>
+    <div class="flex justify-center mt-10 pb-10">
+      <a class="py-3 px-8 border-[#001c2c] border-[1px] rounded-full font-semibold text-sm hover:text-white hover:bg-[#001c2c] text-[#001c2c]">VER TODOS LAS SEDES</a>
+    </div>
+  </div>
+  <div class="bg-[#009AA6] absolute h-[400px] w-full top-0 z-[1] rounded-br-[300px] transform scale-105"></div>
+</section>
+
+<script>
+  const mapValues: { [key: string]: string } = {
+    'ALL' : 'conocenos/sedes',
+    'SJL' : 'conocenos/sedes/san-juan-de-lurigancho',
+    'IND' : 'conocenos/sedes/independencia',
+    'TRU' : 'conocenos/sedes/trujillo',
+    'LIM' : 'conocenos/sedes/lima-centro',
+    'BRE' : 'conocenos/sedes/brena',
+    'AQP' : 'conocenos/sedes/arequipa',
+    'CAL' : 'conocenos/sedes/callao'
+  }
+  const sedes = document.getElementById('selectSedes') as HTMLSelectElement
+  sedes?.addEventListener('change', function() {
+    const selectedValue = this.value;
+    if (selectedValue in mapValues) {
+      window.location.href = mapValues[selectedValue];
+    }
+  });
+
+</script>

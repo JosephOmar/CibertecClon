@@ -1,0 +1,32 @@
+---
+import CardNews from "@components/CardNews.astro";
+import CardNewMain from "@components/CardNewMain.astro";
+import { NEWS, NEWMAIN } from "./InfoCard";
+import type { Code, Debug } from "astro:components";
+---
+<section class="relative pt-20 bg-[#eff2f4]">
+  <div class="max-w-[1024px] mx-auto  relative z-[80]">
+    <h2 class="text-[3.125rem] font-semibold text-[#001c2c] dark:text-[#009AA6] text-center">NOTICIAS</h2>
+    <span class="w-10 h-[14px] rounded-[7px] bg-[#69BE28] block mx-auto mb-10"></span>
+    <div class="justify-center mt-10 pb-10 grid grid-cols-5 grid-rows-3 gap-4">
+      
+      {
+        NEWMAIN.map(item => (
+          <div class="col-span-3  row-span-3">
+          <CardNewMain {...item}/>
+          </div>
+        ))
+      }
+      {
+        NEWS.map(item => (
+          <div class="col-span-2 row-span-1">
+            <CardNews {...item}/>
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex justify-center pb-24">
+      <a class="py-3 px-8 border-[#001c2c] border-[1px] rounded-full font-semibold text-sm hover:text-white hover:bg-[#001c2c] text-[#001c2c]">VER TODOS LAS NOTICIAS</a>
+    </div>
+  </div>
+</section>
